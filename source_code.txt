@@ -1,0 +1,18 @@
+#Mô hình VMAP
+((rank(ts_max((vwap - close), 3)) + rank(ts_min((vwap - close), 3))) *
+rank(delta(volume, 3)))
+
+#Mô hình Ebitda - capex
+-rank(ebit/capex)
+
+#Mô hình R&D Expenses
+rank(mdf_rds)
+
+#Mô hình NPM
+ts_av_diff(mdf_nps, 500)
+
+#Mô hình Earnings Yield
+group_rank(fam_est_eps_rank, industry)
+
+#Mô hình V&C
+ts_zscore(mdf_gry, 20)
